@@ -24,7 +24,28 @@ body {
     overflow-x: hidden;
     color: #a09faf;
 }
-
+.slider-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .card {
+    flex: 0 0 300px; /* Change the width of each card as needed */
+    height: 200px; /* Change the height of each card as needed */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
 :root {
     --primary-color: #ff4581;
 }

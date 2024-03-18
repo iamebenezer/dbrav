@@ -50,9 +50,9 @@ body {
 }
 
 section.slider {
-    padding: 10px 0;
+    padding: 90px 0;
     background: transparent;
-    height:500px;
+    height:fit-content;
 }
 
 section.slider .title {

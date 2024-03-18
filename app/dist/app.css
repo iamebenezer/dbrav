@@ -50,7 +50,7 @@ body {
 }
 
 section.slider {
-    padding: 90px 0;
+    padding: 110px 0;
     background: transparent;
     height:fit-content;
 }
@@ -215,6 +215,9 @@ button.slider__button:hover {
 	.title {
 		font-size: 60px;
 	}
+    section.slider .title {
+		padding: 90px 0;
+	}
 }
 
 @media (max-width: 600px) {
@@ -236,6 +239,9 @@ button.slider__button:hover {
     .slider .btns button {
         font-size: 16px;
     }
+    section.slider .title {
+		padding: 90px 0;
+	}
 }
 
 @media (max-width: 426px) {
@@ -246,6 +252,9 @@ button.slider__button:hover {
 	section.slider .title {
 		font-size: 30px;
 		top: 10px;
+	}
+    section.slider .title {
+		padding: 90px 0;
 	}
 }
 /* Responsive Media Query End */

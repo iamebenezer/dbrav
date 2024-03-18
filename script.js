@@ -1,50 +1,41 @@
-const slider = document.querySelector('.slider');
-let isDown = false;
-let startX;
-let scrollLeft;
+const slider = document.querySelector("[data-slider]");
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
+const track = slider.querySelector("[data-slider-track]");
+const prev = slider.querySelector("[data-slider-prev]");
+const next = slider.querySelector("[data-slider-next]");
 
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+if (track) {
+  prev.addEventListener("click", () => {
+    next.removeAttribute("disabled");
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+    track.scrollTo({
+      left: track.scrollLeft - track.firstElementChild.offsetWidth,
+      behavior: "smooth"
+    });
+  });
 
-slider.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; // Change the sensitivity of the slider movement
-  slider.scrollLeft = scrollLeft - walk;
-});
+  next.addEventListener("click", () => {
+    prev.removeAttribute("disabled");
 
-// Touch events
-slider.addEventListener('touchstart', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.touches[0].pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
+    track.scrollTo({
+      left: track.scrollLeft + track.firstElementChild.offsetWidth,
+      behavior: "smooth"
+    });
+  });
 
-slider.addEventListener('touchend', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+  track.addEventListener("scroll", () => {
+    const trackScrollWidth = track.scrollWidth;
+    const trackOuterWidth = track.clientWidth;
 
-slider.addEventListener('touchmove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.touches[0].pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; // Change the sensitivity of the slider movement
-  slider.scrollLeft = scrollLeft - walk;
-});
+    prev.removeAttribute("disabled");
+    next.removeAttribute("disabled");
+
+    if (track.scrollLeft <= 0) {
+      prev.setAttribute("disabled", "");
+    }
+
+    if (track.scrollLeft === trackScrollWidth - trackOuterWidth) {
+      next.setAttribute("disabled", "");
+    }
+  });
+}

@@ -582,7 +582,7 @@ body[data-magic-cursor="hide"] .mouse-cursor {
     top: 0;
     opacity: 1;
     visibility: visible;
-    background: #5e4f3c;
+    background: rgb(66, 30, 0);
 }
 
 .header .header__body {
@@ -1102,7 +1102,7 @@ h5 {
     overflow: hidden;
     font-family: "Zen Dots";
     font-weight: 400;
-    background: linear-gradient(74deg, rgb(210, 161, 4) 0%, rgb(63 47 29) 92%);
+    background: linear-gradient(74deg, rgb(92, 52, 0) 0%, rgb(63 47 29) 92%);
 }
 
 .btn-action.style-2 span {
